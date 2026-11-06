@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" role="img" aria-label="Õppeauto teel">
+  <rect width="480" height="300" rx="16" fill="#e6f2fb"/>
+  <circle cx="400" cy="60" r="28" fill="#ffd966"/>
+  <rect y="210" width="480" height="90" fill="#4a5560"/>
+  <g fill="#fff"><rect x="20" y="252" width="50" height="6"/><rect x="110" y="252" width="50" height="6"/><rect x="200" y="252" width="50" height="6"/><rect x="290" y="252" width="50" height="6"/><rect x="380" y="252" width="50" height="6"/></g>
+  <path d="M120 200l24-48a20 20 0 0 1 18-11h110a20 20 0 0 1 17 9l30 50z" fill="#0f6fb4"/>
+  <path d="M155 192l16-34h60v34zM243 192v-34h28l20 34z" fill="#cfe8f8"/>
+  <rect x="90" y="190" width="290" height="40" rx="14" fill="#0f6fb4"/>
+  <rect x="330" y="198" width="36" height="10" rx="4" fill="#ffe08a"/>
+  <rect x="104" y="198" width="22" height="10" rx="4" fill="#ff7b7b"/>
+  <circle cx="160" cy="232" r="22" fill="#222"/><circle cx="160" cy="232" r="10" fill="#bbb"/>
+  <circle cx="320" cy="232" r="22" fill="#222"/><circle cx="320" cy="232" r="10" fill="#bbb"/>
+  <rect x="196" y="140" width="48" height="16" rx="3" fill="#ffd966"/>
+  <text x="220" y="152" font-size="11" font-family="Arial" font-weight="bold" text-anchor="middle" fill="#333">ÕPPE</text>
+</svg>
