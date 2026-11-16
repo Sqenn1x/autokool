@@ -10,7 +10,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./www/autokool:/var/www/html   # <--- Указываем папку www в качестве корня сайта
+      - ./www/autokool:/var/www/html   
     environment:
       - DB_HOST=db
       - DB_USER=root

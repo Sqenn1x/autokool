@@ -5,7 +5,7 @@ class Controller
     {
         $courses = array_slice(Course::getAllCourses(), 0, 3);
         $instructors = array_slice(Instructor::getAllInstructors(), 0, 3);
-        render('home', ['title' => 'Avaleht', 'courses' => $courses, 'instructors' => $instructors]);
+        render('home', ['title' => t('Avaleht', 'Главная'), 'courses' => $courses, 'instructors' => $instructors]);
     }
 
     public static function AllCourses()
@@ -13,7 +13,7 @@ class Controller
         $current = $_GET['category'] ?? null;
         $courses = Course::getAllCourses($current ?: null);
         $categories = Course::getCategories();
-        render('courses', ['title' => 'Kursused', 'courses' => $courses, 'categories' => $categories, 'current' => $current]);
+        render('courses', ['title' => t('Kursused', 'Курсы'), 'courses' => $courses, 'categories' => $categories, 'current' => $current]);
     }
 
     public static function CourseByID($id)
@@ -29,18 +29,18 @@ class Controller
     public static function AllInstructors()
     {
         $instructors = Instructor::getAllInstructors();
-        render('instructors', ['title' => 'Instruktorid', 'instructors' => $instructors]);
+        render('instructors', ['title' => t('Instruktorid', 'Инструкторы'), 'instructors' => $instructors]);
     }
 
     public static function Contact()
     {
-        render('contact', ['title' => 'Kontakt']);
+        render('contact', ['title' => t('Kontakt', 'Контакты')]);
     }
 
     public static function error404()
     {
         http_response_code(404);
-        render('404', ['title' => 'Ei leitud']);
+        render('404', ['title' => t('Ei leitud', 'Не найдено')]);
     }
 
     // ------------------------- REGISTREERUMINE KURSUSELE
@@ -49,7 +49,7 @@ class Controller
         $old = ['course_id' => (int)($_GET['course'] ?? 0), 'name' => '', 'email' => '', 'phone' => '', 'message' => ''];
         $courses = Course::getAllCourses();
         $errors = [];
-        render('booking', ['title' => 'Registreeru kursusele', 'courses' => $courses, 'old' => $old, 'errors' => $errors]);
+        render('booking', ['title' => t('Registreeru kursusele', 'Запись на курс'), 'courses' => $courses, 'old' => $old, 'errors' => $errors]);
     }
 
     public static function bookingAnswer()
@@ -64,13 +64,13 @@ class Controller
         ];
         $errors = Booking::validate($old);
         if (!$errors && !Booking::bookingCreate($old)) {
-            $errors[] = 'Registreerumine ebaõnnestus, proovi hiljem uuesti.';
+            $errors[] = t('Registreerumine ebaõnnestus, proovi hiljem uuesti.', 'Не удалось отправить заявку. Попробуйте позже.');
         }
         if ($errors) {
             $courses = Course::getAllCourses();
-            render('booking', ['title' => 'Registreeru kursusele', 'courses' => $courses, 'old' => $old, 'errors' => $errors]);
+            render('booking', ['title' => t('Registreeru kursusele', 'Запись на курс'), 'courses' => $courses, 'old' => $old, 'errors' => $errors]);
             return;
         }
-        render('thanks', ['title' => 'Aitäh!']);
+        render('thanks', ['title' => t('Aitäh!', 'Спасибо!')]);
     }
 }

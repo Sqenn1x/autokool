@@ -9,6 +9,24 @@ function e($value): string
     return htmlspecialchars((string)$value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
+function current_language(): string
+{
+    return $_SESSION['language'] ?? 'et';
+}
+
+function t(string $estonian, string $russian): string
+{
+    return current_language() === 'ru' ? $russian : $estonian;
+}
+
+function language_url(string $language): string
+{
+    $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+    $query = $_GET;
+    $query['lang'] = $language;
+    return $path . '?' . http_build_query($query);
+}
+
 function base_path(): string
 {
     static $base = null;
@@ -56,7 +74,7 @@ function csrf_check(): void
     $known = (string)($_SESSION['csrf'] ?? '');
     if ($known === '' || !hash_equals($known, $sent)) {
         http_response_code(419);
-        exit('Seanss aegus. Palun laadige leht uuesti.');
+        exit(t('Seanss aegus. Palun laadige leht uuesti.', 'Сессия истекла. Пожалуйста, обновите страницу.'));
     }
 }
 
