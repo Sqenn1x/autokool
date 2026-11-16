@@ -80,7 +80,7 @@
                     <li><?= e(t('Ettevalmistus eksamiks', 'Подготовка к экзамену')) ?></li>
                 </ul>
                 <div class="price"><?= money($c['price']) ?> <small>/ <?= e(t('kursus', 'курс')) ?></small></div>
-                <a href="<?= url('bookingForm') ?>?course=<?= (int)$c['id'] ?>" class="btn <?= $isFeatured ? 'btn-white' : 'btn-outline' ?> btn-full">
+                <a href="<?= url('course') ?>?id=<?= (int)$c['id'] ?>" class="btn <?= $isFeatured ? 'btn-white' : 'btn-outline' ?> btn-full">
                     <?= e(t('Loe lähemalt', 'Подробнее')) ?> ↗
                 </a>
             </article>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e(($title ?? '') ? $title . ' | ' : '') ?><?= e(cfg('site_name')) ?></title>
-    <link rel="icon" type="image/svg+xml" href="<?= url('images/logo.svg') ?>">
+    <link rel="icon" type="image/svg+xml" href="<?= url('images/logo.svg') ?>?v=red-2">
     <link rel="stylesheet" href="<?= url('public/css/style.css') ?>">
 </head>
 <body>
@@ -12,7 +12,7 @@
 <header class="site-header">
     <div class="container header-row">
         <a class="brand" href="<?= url('/') ?>">
-            <span class="logo-icon">⊗</span>
+            <img class="brand-icon" src="<?= url('images/logo.svg') ?>?v=red-2" alt="">
             <span>autokool.</span>
         </a>
         <button class="nav-toggle" aria-label="<?= e(t('Menüü', 'Меню')) ?>" aria-expanded="false">☰</button>
